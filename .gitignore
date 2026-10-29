@@ -1,0 +1,22 @@
+# 本地密钥与运行环境
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db
+_assistant-temp/
+*.log
+*.tmp
+*.bak
+# 引擎缓存与构建产物
+library/
+temp/
+local/
+build/
+.cache/
