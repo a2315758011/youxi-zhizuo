@@ -20,9 +20,9 @@
 
 一次只按任务选择必要技能，不要四项全部加载。
 
-## 已补齐的技能依赖
+## 已导入的核心技能与常用依赖
 
-为避免原始技能中的相互引用断链，额外导入：
+导入 4 项核心技能，并额外保存 6 项常用依赖：
 - `gamedev-debugging`：缺陷复现、隔离和定位。
 - `gamedev-vfx-impact`：打击反馈与视觉/音频反馈。
 - `gamedev-locomotion`：移动控制与运动手感。
@@ -31,6 +31,17 @@
 - `gamedev-lighting`：光照与视觉层次。
 
 这六项作为依赖按需调用，不要求每个游戏都加载。
+
+### 尚未导入的可选上游技能
+
+部分原始技能还引用其他专项能力。为避免无必要地复制全部 28 项技能，以下内容保留为上游按需获取项：
+- 动画、镜头、性能：`gamedev-animation`、`gamedev-camera`、`gamedev-performance`。
+- 美术与材质：`gamedev-texture-authoring`、`gamedev-art-direction`、`gamedev-foliage`。
+- 概念与建模：`gamedev-concept-judge`、`gamedev-concept-lab`、`gamedev-blender-headless`、`gamedev-procedural-modeling`、`gamedev-modular-kit`、`gamedev-visual-artifacts`、`gamedev-world-from-data`。
+- 引擎专用：`gamedev-godot-pipeline`、`gamedev-godot-visual-polish`、`gamedev-unity-pipeline`。
+- 内容专项：`gamedev-boss-encounter`、`gamedev-audio-wire`。
+
+需要时从固定上游版本按完整目录获取：[ForgeSkills 技能目录](https://github.com/sekaikx/ForgeSkills/tree/cefbba0720b58b110a2e8ab36e71e46246ea1e29/skills)。不要把未导入的名称误认为本仓库已有文件。
 
 ## 图像评估工具
 
