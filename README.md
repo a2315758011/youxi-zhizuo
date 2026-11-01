@@ -52,6 +52,8 @@
 
 
 ## AI 游戏代码工程能力
+- [游戏程序开发与代码最小化](./程序开发/游戏程序开发与代码最小化/SKILL.md)：最小实现、引擎能力复用、复杂度预算、根因调试和代码审查。
+- [玩法系统实现与可玩闭环](./程序开发/玩法系统实现与可玩闭环/SKILL.md)：从策划规则到输入、反馈、胜负、结算、重开和目标设备验收。
 - [AI 游戏代码工程总规范](./程序开发/AI游戏代码工程总规范/SKILL.md)：AI 编写游戏代码的总入口，覆盖工程侦察、需求映射、架构、实现、调试、重构、审查、安全、性能和交付。
 - [awesome-agent-skills 精选原文](./外部专业技能库/awesome-agent-skills/README.md)：17 项通用 AI 编程工程技能，MIT，含代码审查、架构审计、根因修复、安全、性能、重构和依赖治理。
 - [engineering-standards 核心规范](./外部专业技能库/engineering-standards/README.md)：7 项通用工程规范，MIT，含代码完整性、职责分层、历史回归和跨会话计划跟踪。
@@ -66,4 +68,4 @@
 - [游戏资料库轻量质量检查](./tools/validate_game_repo.py)：仅用 Python 标准库检查全部技能元数据、README 技能数量和核心索引链接。
 - GitHub Actions 在 main 分支推送、拉取请求及手动触发时执行检查；不需要付费 API 或额外 Python 依赖。
 
-**当前仓库技能规模：156 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
+**当前仓库技能规模：158 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
