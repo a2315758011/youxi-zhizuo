@@ -57,3 +57,5 @@
 - [engineering-standards 核心规范](./外部专业技能库/engineering-standards/README.md)：7 项通用工程规范，MIT，含代码完整性、职责分层、历史回归和跨会话计划跟踪。
 
 - [Superpowers 工程方法技能](./外部专业技能库/superpowers/README.md)：8 项方法技能，覆盖需求澄清、测试驱动开发、系统化调试、完成前证据验证、计划编写/执行和代码审查。
+
+- [GitHub Awesome Copilot 精选技能](./外部专业技能库/awesome-copilot/README.md)：代码库认知、AI 输出质量评估、AI 工具与依赖供应链审计。
