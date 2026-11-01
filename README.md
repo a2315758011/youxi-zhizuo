@@ -62,4 +62,4 @@
 - [Everything Game Dev Code 精选技能](./外部专业技能库/everything-game-dev-code/README.md)：游戏玩法架构、崩溃分诊、工程风险登记；仅导入互补内容，不引入上游庞大脚手架。
 
 
-**当前仓库技能规模：154 份 SKILL.md。** 其中已精选导入 37 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 5），并新增 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。所有第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
+**当前仓库技能规模：156 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
