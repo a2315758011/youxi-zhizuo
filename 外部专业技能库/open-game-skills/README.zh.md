@@ -1,0 +1,344 @@
+# open-game-skills
+
+<p align="center">
+  <img src="docs/open_game_logo.png" alt="open-game-skills" width="640"/>
+</p>
+
+<p align="center">
+  <a href="README.md">English</a> · <b>简体中文</b> · <a href="README.zh-Hant.md">繁體中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ko.md">한국어</a>
+</p>
+
+<p align="center">
+  <strong>做游戏用的通用 Agent Skill。</strong><br/>
+  直接说话。dispatcher 选 skill、选列。<br/>
+  工作室和引擎是可叠的列，不是要你照抄的成品。
+</p>
+
+<p align="center">
+  <a href="https://github.com/jammyfu/open-game-skills/actions/workflows/skill-quality.yml"><img alt="Skill quality CI" src="https://img.shields.io/github/actions/workflow/status/jammyfu/open-game-skills/skill-quality.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=skill%20quality"/></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/jammyfu/open-game-skills?style=flat-square&color=2a9d8f"/></a>
+  <a href="https://github.com/jammyfu/open-game-skills/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/jammyfu/open-game-skills?style=flat-square&logo=github&color=e76f51"/></a>
+  <a href="skills/catalog.json"><img alt="194 skills" src="https://img.shields.io/badge/skills-194-264653?style=flat-square"/></a>
+  <a href="skills/SKILL.md"><img alt="Agent Skills: SKILL.md" src="https://img.shields.io/badge/Agent%20Skills-SKILL.md-D97757?style=flat-square&logo=anthropic&logoColor=white"/></a>
+  <img alt="Python 3.10+" src="https://img.shields.io/badge/python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white"/>
+  <a href="https://jammyfu.github.io/open-game-skills/weighted-skinning/"><img alt="Live demo" src="https://img.shields.io/badge/demo-live-0a7ea4?style=flat-square&logo=githubpages&logoColor=white"/></a>
+  <img alt="Docs: EN, 简, 繁, 日, 한" src="https://img.shields.io/badge/docs-EN%20%C2%B7%20%E7%AE%80%20%C2%B7%20%E7%B9%81%20%C2%B7%20%E6%97%A5%20%C2%B7%20%ED%95%9C-e9c46a?style=flat-square"/>
+</p>
+
+默认文档是 [English README](README.md)。中英一行索引：[docs/SKILL-INDEX.md](docs/SKILL-INDEX.md)。
+
+## 为什么值得收藏
+
+- **194 个游戏技能，一个调度器。** 用大白话描述你的游戏，agent 每个阶段最多加载三个技能和一个引擎适配器。
+- **不绑定引擎。** 适配 three.js、PixiJS、Phaser、Cocos、Godot、Unity 和 Unreal，也支持自研运行时。
+- **规则可以测试。** 每个技能都带正常、边界和对抗三类评审用例，CI 自动检查。
+- **真正可用的 2D 蒙皮工具链。** 网格、调和权重、漏染与接缝检查、IK 轨迹、翻折与拉伸审计、Spine 风格骨骼叠加图，以及经过验证的 rig-c 导出。只依赖 Python、numpy 和 Pillow。
+- **在你已有的工具里就能用。** Claude Code、Codex、Cursor、OpenClaw，以及任何读取 `SKILL.md` 的 agent。
+
+## 看它跑起来：鹈鹕骑自行车
+
+<p align="center"><img src="examples/pelican-bicycle/docs/preview.gif" alt="鹈鹕横叼着鱼骑自行车，轮胎压过石头时压平" width="680"/></p>
+
+<table>
+  <tr>
+    <td align="center" width="33%"><img src="examples/pelican-bicycle/docs/rig.gif" alt="骨骼与 IK 约束" width="100%"/><br/><sub>骨骼与 IK 约束</sub></td>
+    <td align="center" width="33%"><img src="examples/pelican-bicycle/docs/fish.gif" alt="鱼横叼在喙里" width="100%"/><br/><sub>鱼横叼在喙里</sub></td>
+    <td align="center" width="33%"><img src="examples/pelican-bicycle/docs/wheel.gif" alt="轮胎压过石头" width="100%"/><br/><sub>轮胎压过石头</sub></td>
+  </tr>
+</table>
+
+一个程序生成的角色，27 个图层，无需下载素材。所有动作都由骨骼和蒙皮权重驱动：
+
+- **翅膀扶车把。** 双骨 IK 让翼尖贴住握把，身体在弹簧上起伏时误差也在 2e-14 以内。
+- **双脚踩踏板。** 骨长固定，膝关节在 44° 到 114° 之间摆动，从不翻折。
+- **鱼横叼在喙里。** 四根骨从夹持点出发，两端扑腾，闭合的喙挡住鱼身中段。
+- **软轮胎。** 内圈贴住轮辋不动，胎面只在接触路面和石头的地方压平。
+- **脖子、头和尾巴。** 脖子是平滑曲线，头随每次踩踏摆动，两骨尾羽会抖动。
+- **用证据说话。** 调和权重的可见翻折像素为 0，最近骨刚性对照组会翻折并被拒绝。
+
+    python -m pip install -r requirements-dev.txt
+    python examples/pelican-bicycle/run.py --out /tmp/pelican-review
+
+[阅读案例](examples/pelican-bicycle/README.zh.md) · [查看 skin-weights Skill](skills/2d/skin-weights/SKILL.md)
+
+### 用 skill 自己做一个
+
+装好技能包，一句话就够：
+
+    用 open-game-skills 做一只骑自行车的 2D 鹈鹕，嘴里叼着鱼，用骨骼蒙皮做动画。
+
+其余的由 skill 补全，并在动手前先列出它的选择：
+
+- **接触：** 脚踩踏板，翼尖扶车把，鱼夹在喙里。
+- **刚与柔：** 头、喙、脚和轮辋刚性；脖子、鱼、尾巴和轮胎用蒙皮权重。
+- **动作：** 头和尾巴随每次踩踏摆动，轮胎在路面上压平。
+- **证据：** 翻折审计、GIF、骨骼与 IK 叠加图。
+
+调度器会这样路由：
+
+    USE:
+    - skin-weights / n/a
+    - spine-skeletal / existing
+    ENGINE: none
+    ASK:
+    DEFER: 接入 PixiJS 运行时
+
+随后 agent 依次运行 build_mesh.py → solve_weights.py → lint_weights.py → pose_trace.py → audit_skin.py + measure_surface.py → render_skin.py → export_rigc.py，以 [`make_art.py`](examples/pelican-bicycle/make_art.py) 为参考案例。想改哪里直接说，比如“轮胎再弹一点”。
+
+### 更多可运行案例
+
+- **关节权重：失败与修正对照。** 同一原画和骨骼，修正前 2,529 个可见翻折像素，修正后为 0。[交互演示](https://jammyfu.github.io/open-game-skills/weighted-skinning/) · [复现案例](examples/weighted-skinning/README.md)
+- **绑定前发现图集串色。** 像素完全一致的裁切仍可能带进相邻部件的颜色。[复现](examples/attachment-ownership/README.md) · [查看图示](docs/cases/attachment-ownership.md)
+
+[![蒙皮权重修复前后对照](docs/demos/weighted-skinning/preview.gif)](https://jammyfu.github.io/open-game-skills/weighted-skinning/)
+
+## 先说话
+
+装包后让 agent 读 [`skills/SKILL.md`](skills/SKILL.md) → [`dispatcher`](skills/dispatcher/SKILL.md)：
+
+```
+USE:
+- <skill> / <列>
+ENGINE: none | unknown | custom | threejs | pixijs | phaser | cocos | godot | unity | unreal
+ASK: <最多一句>
+DEFER: <后续阶段或留空>
+```
+
+每阶段最多 3 个专项技能（含资产/2D）+ 1 个必要引擎，后续任务分阶段继续。`none` 表示纯策划无需引擎，`unknown` 表示尚未确定，`custom` 表示真正的自定义运行时，不能拿来代替猜测。不用背文件名。
+
+先读[共用执行约定](skills/CONTRACT.md)，了解职责和证据边界。[自动生成的完整目录](skills/catalog.json)包含全部技能；下方表格与中英索引是常用项导航，不是完整清单。
+
+| 你说 | 应该装 |
+|---|---|
+| 卡普空街霸式 3D | `fighting-design` / grounded-footsies · `action-feel` / short-special |
+| 开放世界别画任务箭 | `world-map` · `camera-anti-clip` |
+| 跳得飘 | `platform-jump` · `jump-leniency` |
+| 陌生人能不能通 | `gameplay-validation` / real-input |
+| 硬直太长 / 精英没反击 | `hitstun-recover` · `enemy-kit-balance` |
+| 过场把摇杆还回来 | `cutscene-handoff` |
+| 低机位侵入角色私密区 | `camera-modesty` / modest |
+| 移动平台 + 岩浆 | `moving-platform` · `hazard-volume` |
+| 关卡教学 / 先教后考 | `level-teach` / safe-try |
+| 冒烟 / 回归 / 浸泡 | `test-matrix` · `soak-stability` |
+
+## 怎么叠
+
+```
+引擎 adapter     custom / three.js / PixiJS / Phaser / Cocos / Godot / Unity / Unreal
+        ↓
+学科         feel · kit · traversal · camera · world · validate
+        ↓
+一列         short-special · consume · drift-kart · region-tier
+```
+
+一个演员一套战斗时钟。一个物件一列耐久。工作室名只选列。
+
+引擎绑定：`poll_input` · `now_logical_frame` · `play_pose` · `query_hits` · `apply_knockback` · `juice_hook`。
+
+## 铁律
+
+1. **卡肉 ≠ 硬直。** 优势帧 = 受击方首次可行动 tick − 攻击方首次可行动 tick。
+2. **不要靠偷玩家无敌或拉长玩家硬直来平衡怪。** 先调起手、收招、冷却，最后 HP。
+3. **传送 / 改解锁 / 调试场 不是自然通关。**
+4. **内购和外观不改取消窗口、不改判定盒。**
+5. **不把成品关卡或帧表写进铁律。** 只选列。
+
+帧数和验收标准在各份 `SKILL.md` 里。
+
+## 常用技能目录（每个 skill 一句话）
+
+### 手感与时钟
+
+| Skill | 用来干什么 |
+|---|---|
+| [action-feel](skills/disciplines/action-feel/SKILL.md) | 缓冲、取消、卡肉、战斗时钟 |
+| [combo-design](skills/disciplines/combo-design/SKILL.md) | 连段路线。无限硬直是 bug |
+| [hitstun-recover](skills/disciplines/hitstun-recover/SKILL.md) | 卡肉解冻后，被打方还有几帧不能动 |
+| [knockback-launch](skills/disciplines/knockback-launch/SKILL.md) | 击飞 / 浮空，不是第二套重力 |
+| [knockback-body](skills/disciplines/knockback-body/SKILL.md) | 击飞走胶囊，不穿墙 |
+| [landing-lag](skills/disciplines/landing-lag/SKILL.md) | 空中招落地。空跳短，攻击落地长 |
+| [juice-vfx](skills/disciplines/juice-vfx/SKILL.md) | 逻辑命中之后才闪 |
+| [audio-feel](skills/disciplines/audio-feel/SKILL.md) | 音效跟同一拍。重试不叠旧曲 |
+| [haptic-rumble](skills/disciplines/haptic-rumble/SKILL.md) | 震动可关，关了窗口不变 |
+| [super-meter](skills/disciplines/super-meter/SKILL.md) | 气槽。不暗改卡肉 |
+
+### 战斗套装
+
+| Skill | 用来干什么 |
+|---|---|
+| [fighting-design](skills/disciplines/fighting-design/SKILL.md) | 对波、地面踏步 |
+| [enemy-kit-balance](skills/disciplines/enemy-kit-balance/SKILL.md) | 一体一职。先调起手和反击 |
+| [attack-tell](skills/disciplines/attack-tell/SKILL.md) | 起手要能读。闪白不能当唯一预警 |
+| [hyper-armor](skills/disciplines/hyper-armor/SKILL.md) | 霸体写在招上 |
+| [parry-guard](skills/disciplines/parry-guard/SKILL.md) | 格挡与招架 |
+| [dodge-iframe](skills/disciplines/dodge-iframe/SKILL.md) | 无敌帧写在躲避这招 |
+| [throw-tech](skills/disciplines/throw-tech/SKILL.md) | 投破防。投技盒不是拳盒 |
+| [wakeup-oki](skills/disciplines/wakeup-oki/SKILL.md) | 倒地起身。无限倒地是 bug |
+| [boss-design](skills/disciplines/boss-design/SKILL.md) | 阶段换职务 |
+| [hitbox-hurtbox](skills/disciplines/hitbox-hurtbox/SKILL.md) | 攻击盒 / 受击盒 |
+| [collision-layers](skills/disciplines/collision-layers/SKILL.md) | 谁碰谁。渲染网格不是受击盒 |
+
+### 移动
+
+| Skill | 用来干什么 |
+|---|---|
+| [locomotion](skills/disciplines/locomotion/SKILL.md) | 走跑、模拟 vs 快贴 |
+| [platform-jump](skills/disciplines/platform-jump/SKILL.md) | 跳高、土狼、跳缓冲。不用土狼也要能过 |
+| [moving-platform](skills/disciplines/moving-platform/SKILL.md) | 站上会走的板，继承速度 |
+| [climb-vault](skills/disciplines/climb-vault/SKILL.md) | 翻越与爬，有体力代价 |
+| [grapple-swing](skills/disciplines/grapple-swing/SKILL.md) | 钩锁是一招，不是飞 |
+| [swim-water](skills/disciplines/swim-water/SKILL.md) | 浮水 / 潜水、呼吸 |
+| [hazard-volume](skills/disciplines/hazard-volume/SKILL.md) | 地刺、岩浆。第一跳前要能看见 |
+| [ik-foot-locking](skills/disciplines/ik-foot-locking/SKILL.md) | 脚贴斜坡。IK 是表演 |
+
+### 镜头与输入
+
+| Skill | 用来干什么 |
+|---|---|
+| [camera-anti-clip](skills/disciplines/camera-anti-clip/SKILL.md) | 身体留在画面里，镜头不钻墙 |
+| [camera-modesty](skills/disciplines/camera-modesty/SKILL.md) | 守住体面机位，拒绝侵入式低机位和私密区特写 |
+| [lock-on-target](skills/disciplines/lock-on-target/SKILL.md) | 锁定记号、朝向、镜头一致 |
+| [kb-mouse-map](skills/disciplines/kb-mouse-map/SKILL.md) | 键鼠按品类映射 |
+| [browser-input](skills/disciplines/browser-input/SKILL.md) | Pointer Lock 降级、手指分工 |
+| [cutscene-handoff](skills/disciplines/cutscene-handoff/SKILL.md) | 过场结束要还视线和动词 |
+| [input-design](skills/disciplines/input-design/SKILL.md) | 按键少，按上下文换动词 |
+
+### 世界与成长
+
+| Skill | 用来干什么 |
+|---|---|
+| [world-map](skills/disciplines/world-map/SKILL.md) | 信息怎么挣。玩家插销，不要满图任务箭 |
+| [ability-gate](skills/disciplines/ability-gate/SKILL.md) | 门的安全侧把动词教完 |
+| [level-teach](skills/disciplines/level-teach/SKILL.md) | 先看、安全试、考、混搭。一拍一个新动词 |
+| [skill-tree](skills/disciplines/skill-tree/SKILL.md) | 买选项，不是暗加帧 |
+| [difficulty-design](skills/disciplines/difficulty-design/SKILL.md) | 空间、资源还是数值——只选一个刻度 |
+| [equipment-progression](skills/disciplines/equipment-progression/SKILL.md) | 换件 / 树 / 词缀 / 融合 / 永久 |
+| [durability-economy](skills/disciplines/durability-economy/SKILL.md) | 碰碎 / 磨刀 / 修 / 不坏。一件一列 |
+| [dialogue-flags](skills/disciplines/dialogue-flags/SKILL.md) | 选项写旗帜，不改硬直 |
+
+### 验收与测试
+
+| Skill | 用来干什么 |
+|---|---|
+| [gameplay-validation](skills/disciplines/gameplay-validation/SKILL.md) | 逻辑绿 ≠ 陌生人能通 |
+| [gameplay-capture](skills/disciplines/gameplay-capture/SKILL.md) | 标清实战 / 改过解锁 / 功能演示 |
+| [test-matrix](skills/disciplines/test-matrix/SKILL.md) | 先选列：冒烟 / 功能 / 回归 / 组合 / 试玩 |
+| [soak-stability](skills/disciplines/soak-stability/SKILL.md) | 长时会话看泄漏和卡顿 |
+| [input-combo-test](skills/disciplines/input-combo-test/SKILL.md) | 单键绿 ≠ 走+瞄+攻同时绿 |
+| [cert-handoff](skills/disciplines/cert-handoff/SKILL.md) | 休眠恢复 / 拔手柄 / 坏档。不搬 TRC 原文 |
+| [game-planning](skills/disciplines/game-planning/SKILL.md) | 地图变大之前的最小可玩片段 |
+| [game-localization](skills/disciplines/game-localization/SKILL.md) | 术语、字体、排版 |
+
+### 其它品类 / 引擎
+
+| Skill | 用来干什么 |
+|---|---|
+| [racing-feel](skills/disciplines/racing-feel/SKILL.md) | 飘移 / 加速轨。不要暗追赶 |
+| [rhythm-judge](skills/disciplines/rhythm-judge/SKILL.md) | 判定窗对齐明确的音乐或动作时钟 |
+| [deck-build](skills/disciplines/deck-build/SKILL.md) | 牌是动词。不卖取消窗口 |
+| [roguelike-run](skills/disciplines/roguelike-run/SKILL.md) | 一局一种子。Meta 开选项 |
+| [game-monetization](skills/disciplines/game-monetization/SKILL.md) | 先玩后付。外观不改判定 |
+| [custom](skills/engines/custom/SKILL.md) · [threejs](skills/engines/threejs/SKILL.md) · [pixijs](skills/engines/pixijs/SKILL.md) · [phaser](skills/engines/phaser/SKILL.md) · [cocos](skills/engines/cocos/SKILL.md) · [godot](skills/engines/godot/SKILL.md) · [unity](skills/engines/unity/SKILL.md) · [unreal](skills/engines/unreal/SKILL.md) | 绑定六个原语 |
+
+名字对不上就说人话。dispatcher 认简中 / 繁中 / 英 / 日 / 韩。
+
+## 安装
+
+```bash
+git clone https://github.com/jammyfu/open-game-skills.git
+cd open-game-skills
+python3 tools/install.py --target "$HOME/.openclaw/workspace/skills"
+python3 tools/install.py --target "$HOME/.claude/skills"
+```
+
+装好就说话，不要把目录贴进提示词。
+
+目标应设为实际配置的 Agent skills 目录；上述路径只是示例。安装器创建父目录，不覆盖已有文件或其他链接。可用 `--dry-run` 预览；无软链接权限时加 `--copy`，复制安装需手动更新。需要 Python 3.10+；Windows 使用 `python` 和明确的目标路径。请保留完整目录，各 Agent 的自动发现需单独验证。参见[开发检查](CONTRIBUTING.md)。
+
+## 更新已有安装
+
+在仓库目录内执行；先提交或另行保存自己的未提交改动。分支有分歧时先处理分歧，不要强制重置。
+
+```bash
+git switch main
+git pull --ff-only origin main
+```
+
+软链接安装会直接使用更新后的源文件。使用 `--copy` 的安装，需先明确备份或移走旧安装目录，再重新复制；安装器不会覆盖它。更新技能包不会自动升级游戏，也不会重新配置 Agent。
+
+## 开发检查
+
+使用 Python 3.10+，建议在虚拟环境中操作。以下命令在仓库根目录执行；Windows 将示例中的 `python3` 替换为 `python`。
+
+```bash
+python3 -m pip install -r requirements-dev.txt
+python3 -m unittest discover -s tests -v
+python3 tools/skill_quality.py --check-catalog
+```
+
+新增、删除或重命名 skill 后，重新生成目录，再运行测试：
+
+```bash
+python3 tools/skill_quality.py --write-catalog --check-catalog
+```
+
+这些命令检查元数据、本地引用、目录一致性、安装器行为和多语言 README 的共用事实，不代表 LLM 路由准确性、引擎兼容性、真人可玩性或翻译质量已经验证。详细范围见[贡献说明](CONTRIBUTING.md)。其余技能的深度审查仍不应视为完成。
+
+## 工程能力技能
+
+每项附配置示例，以及正常、边界、反例三类评测场景。写好场景不等于已经实测。
+
+| Skill | 负责什么 |
+|---|---|
+| [game-state-flow](skills/disciplines/game-state-flow/SKILL.md) | 整局状态转换、过期异步任务和幂等结算。 |
+| [asset-runtime](skills/disciplines/asset-runtime/SKILL.md) | 资源加载、共享引用、取消与释放。 |
+| [procedural-generation](skills/disciplines/procedural-generation/SKILL.md) | 版本化生成、流程可达性与有上限的修复。 |
+| [terrain-surface](skills/disciplines/terrain-surface/SKILL.md) | 区块接缝、坡面、岸线与碰撞一致性。 |
+| [world-streaming](skills/disciplines/world-streaming/SKILL.md) | 区块就绪、驻留、传送与世界改动保存。 |
+| [physics-interaction](skills/disciplines/physics-interaction/SKILL.md) | 推拉、搬运、投掷与物理控制权。 |
+
+[组合工作流](skills/references/engineering-workflow.md) · [专项登记表](skills/engineering-registry.json) · [评测记录说明](docs/EVALUATION.md)
+
+```bash
+python3 tools/engineering_quality.py
+```
+
+登记表仅覆盖这六项工程约定。该命令检查结构与导入记录的一致性，不调用模型；未导入真实结果时，18 个场景全部为 `not-run`。静态通过不等于模型行为或引擎实现通过。
+
+## License
+
+MIT。by jammyfu / PaintingCoder
+
+## 测试优先复用开放素材
+
+新增 [open-asset-fixture](skills/assets/open-asset-fixture/SKILL.md)，为 2D、3D、动画、音效、特效、PBR 和 HDRI 测试优先寻找现成素材。查看[素材来源与许可证](skills/assets/open-asset-fixture/reference/sources.md)及[使用与状态说明](skills/assets/open-asset-fixture/reference/usage.md)。先复用符合要求且通过哈希校验的本地素材，再匹配免费 CC0 候选；CC-BY 需明确接受署名。脚本不会自动下载、购买或调用生成模型。
+
+```sh
+python3 skills/assets/open-asset-fixture/scripts/prepare_assets.py --skill materials
+python3 skills/assets/open-asset-fixture/scripts/prepare_assets.py --all-skills skills/catalog.json --output asset-plan.json
+python3 skills/assets/open-asset-fixture/scripts/prepare_assets.py --skill juice-vfx --root /absolute/fixtures --locks /absolute/fixture.lock.json --pinned-only
+```
+
+`--all-skills` 保留全部技能及未满足项，不把没有配置的技能当作通过。`--pinned-only` 用于离线 CI，素材缺失就阻塞，不偷偷下载替代品。`needs-acquisition` 仅表示找到候选；`ready-for-import` 仍不等于解码、引擎或玩法测试通过。TheLegendOfTrump 继续只提供另行授权的素材，不借用其半成品游戏实现，也不把它改标为 CC0。
+
+## 素材包
+
+项目收到成品类型素材包（图集、图块集、Tiled 地图、手感与音频数据，由 `pack.json` 描述）时，用 [asset-pack-intake](skills/assets/asset-pack-intake/SKILL.md)：校验清单、把每个文件夹映射到负责它的技能，并规划引擎里的搭建阶段；它不修改美术。[清单契约](skills/assets/asset-pack-intake/reference/pack-manifest.md)是通用的，不绑定某个生成器。
+
+```sh
+python3 skills/assets/asset-pack-intake/scripts/validate_pack.py --root /absolute/pack --plan --engine godot --style pixel-16bit
+```
+
+检查是静态的（哈希、图集矩形与 PNG 尺寸、地图 gid、手感数值的来源、包内无代码、各画风声明的 1080p 整数缩放画布，以及必须把每个资产键映射到每个画风的 `styles.json` 换皮表）。引擎导入、通关与听感在有证据前保持 `not-run`。
+
+## 实用生产能力补充
+
+新增模块化场景装配，并加强跨骨骼动作兼容、保留形象的分档减模、图形资源恢复和回放首个偏差定位。见[能力说明](docs/PRACTICAL-CAPABILITIES.md)。两个离线工具只检查声明布局和导出轨迹，不等于运行游戏，也不证明模型能力提升。
+
+[scene-assembly](skills/disciplines/scene-assembly/SKILL.md) · [character-rig](skills/assets/character-rig/SKILL.md) · [model-pipeline](skills/assets/model-pipeline/SKILL.md) · [asset-runtime](skills/disciplines/asset-runtime/SKILL.md) · [gameplay-harness](skills/disciplines/gameplay-harness/SKILL.md)
+
+### 高清人物序列
+
+[hd-sprite-sequence](skills/2d/hd-sprite-sequence/SKILL.md): 锁定脸部大小、头身与四肢比例；用图片哈希、独立关键点和动作循环门禁校对，失败帧必须重绘。
+
+提供固定角色部件＋骨架烘焙，禁止逐帧缩放或换脸；烘焙结果仍需独立美术与动作验收。
