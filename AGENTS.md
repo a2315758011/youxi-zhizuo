@@ -69,4 +69,6 @@
 
 跨系统玩法设计、状态所有权或更新顺序不清时，按需读取 [游戏玩法架构](./外部专业技能库/everything-game-dev-code/游戏玩法架构/SKILL.md)。多阶段项目、外部依赖或高风险里程碑需要管理不确定性时，按需读取 [工程风险登记](./外部专业技能库/everything-game-dev-code/工程风险登记/SKILL.md)。小任务不强制建立风险登记表。
 
+修改或新增技能、来源索引、AGENTS.md 或总 README 后，必须运行 `python tools/validate_game_repo.py`；GitHub Actions 会在 main 分支推送和拉取请求时复核。若本地环境无法运行，必须明确标记未验证，不得把等待 CI 说成通过。
+
 不得用 AI 自评替代同一任务的真实对照测试。
