@@ -3,7 +3,7 @@
 - 上游：https://github.com/github/awesome-copilot
 - 固定提交：5269f7ea2d6c3a9bfda5ed878b6726cf509121fd
 - 许可证：MIT，原文见本目录 LICENSE。
-- 上游规模：数百份 Agent Skills、指令和 Agent 配置；本次只选 5 项与游戏代码工程直接相关的内容，不复制整个庞大集合。
+- 上游规模：数百份 Agent Skills、指令和 Agent 配置；本次只选 4 项与游戏代码工程直接相关的内容，不复制整个庞大集合。
 
 ## 已保存技能
 
