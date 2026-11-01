@@ -59,6 +59,7 @@
 - [Superpowers 工程方法技能](./外部专业技能库/superpowers/README.md)：8 项方法技能，覆盖需求澄清、测试驱动开发、系统化调试、完成前证据验证、计划编写/执行和代码审查。
 
 - [GitHub Awesome Copilot 精选技能](./外部专业技能库/awesome-copilot/README.md)：代码库认知、AI 输出评估、工程约束固化、供应链审计。
+- [Everything Game Dev Code 精选技能](./外部专业技能库/everything-game-dev-code/README.md)：游戏玩法架构、崩溃分诊、工程风险登记；仅导入互补内容，不引入上游庞大脚手架。
 
 
 **当前仓库技能规模：154 份 SKILL.md。** 其中已精选导入 37 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 5），并新增 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。所有第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
