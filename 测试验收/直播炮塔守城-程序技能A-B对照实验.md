@@ -16,7 +16,7 @@
 
 - 项目：直播炮塔守城
 - 正式工程：Cocos Creator 工程
-- 历史工程路径：`C:\Users\ide0007\Desktop\deliverable\AI小游戏实战营\AI小游戏制作工程文件\直播炮塔守城\CocosCreator工程`
+- 工程路径：通过本机项目注册表中的 `projectId=live-turret-defense` 解析；公开实验档案不保存用户电脑的绝对路径。
 - 历史引擎版本：Cocos Creator 3.8.2
 - 历史主场景：守城主场景.scene
 - 历史可玩基线：九座炮塔、中央水晶；曾记录三波胜利、96 击杀、水晶生命 100、重开恢复九座炮塔。
