@@ -211,8 +211,8 @@ description: 面向 AI 编程代理的游戏软件工程总入口。负责理解
 ## 12. 第三方原文索引
 
 通用工程原文：
-- ../外部专业技能库/awesome-agent-skills/README.md
-- ../外部专业技能库/engineering-standards/README.md
+- ../../外部专业技能库/awesome-agent-skills/README.md
+- ../../外部专业技能库/engineering-standards/README.md
 
 游戏引擎技能：
 - ../专业游戏技能库来源与中文调度索引.md
