@@ -55,3 +55,5 @@
 - [AI 游戏代码工程总规范](./程序开发/AI游戏代码工程总规范/SKILL.md)：AI 编写游戏代码的总入口，覆盖工程侦察、需求映射、架构、实现、调试、重构、审查、安全、性能和交付。
 - [awesome-agent-skills 精选原文](./外部专业技能库/awesome-agent-skills/README.md)：17 项通用 AI 编程工程技能，MIT，含代码审查、架构审计、根因修复、安全、性能、重构和依赖治理。
 - [engineering-standards 核心规范](./外部专业技能库/engineering-standards/README.md)：7 项通用工程规范，MIT，含代码完整性、职责分层、历史回归和跨会话计划跟踪。
+
+- [Superpowers 工程方法技能](./外部专业技能库/superpowers/README.md)：8 项方法技能，覆盖需求澄清、测试驱动开发、系统化调试、完成前证据验证、计划编写/执行和代码审查。
