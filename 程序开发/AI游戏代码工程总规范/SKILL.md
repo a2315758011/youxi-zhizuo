@@ -235,7 +235,7 @@ AI 输出评估只用于辅助比较候选实现。评分标准必须映射到�
 - ../../外部专业技能库/awesome-agent-skills/README.md
 - ../../外部专业技能库/awesome-copilot/README.md
 - ../../外部专业技能库/awesome-copilot/工程约束固化/SKILL.md
-- ../../外部专业技能库/awesome-copilot/AI输出客观评估/SKILL.md
+- ../../外部专业技能库/awesome-copilot/AI代码输出评估/SKILL.md
 - ../../外部专业技能库/engineering-standards/README.md
 
 游戏引擎技能：
