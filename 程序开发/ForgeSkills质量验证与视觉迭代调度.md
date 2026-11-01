@@ -5,7 +5,7 @@
 - 上游：[sekaikx/ForgeSkills](https://github.com/sekaikx/ForgeSkills)
 - 导入时上游提交：`cefbba0720b58b110a2e8ab36e71e46246ea1e29`
 - 许可证：Apache-2.0，原始 LICENSE 已保留。
-- 导入内容：4 项技能、4 个图像评估脚本、上游测试结果、A/B 测试记录、限制说明。
+- 导入内容：10 项技能、4 个图像评估脚本、5 个 Blender 脚本、上游测试结果、A/B 测试记录、限制说明。
 - 当前评级：B（已保存、完成静态审阅；尚未在用户游戏项目执行）。
 - 不把上游作者的测试报告当成用户项目的测试证据。
 
@@ -20,6 +20,18 @@
 
 一次只按任务选择必要技能，不要四项全部加载。
 
+## 已补齐的技能依赖
+
+为避免原始技能中的相互引用断链，额外导入：
+- `gamedev-debugging`：缺陷复现、隔离和定位。
+- `gamedev-vfx-impact`：打击反馈与视觉/音频反馈。
+- `gamedev-locomotion`：移动控制与运动手感。
+- `gamedev-orchestrator`：研发阶段编排和门禁。
+- `gamedev-reference-reconstruction`：按参考图重建资产。
+- `gamedev-lighting`：光照与视觉层次。
+
+这六项作为依赖按需调用，不要求每个游戏都加载。
+
 ## 图像评估工具
 
 位置：`外部专业技能库/ForgeSkills/tools/refmatch/`
@@ -30,6 +42,8 @@
 - `palette_report.py`：提取色板并比较渲染色彩。
 
 依赖：Python、Pillow、NumPy。当前只保存了源脚本，没有在用户仓库运行环境中安装依赖或执行工具；因此工具当前状态为“已导入、未运行验证”。不得宣称已经可以直接运行。
+
+Blender 脚本位于 `外部专业技能库/ForgeSkills/tools/blender/`，依赖 Blender 自带的 `bpy` / `mathutils`。其中 `character_blockout.py` 与 `explorer_build.py` 会清理或移除活动场景中的对象/集合；在真实项目中运行前必须复制到隔离测试场景或独立 `.blend` 文件，禁止直接在用户主场景执行。其余脚本也必须先确认输入、输出和场景上下文。当前只做静态审阅，没有执行。
 
 ### 使用约束
 
