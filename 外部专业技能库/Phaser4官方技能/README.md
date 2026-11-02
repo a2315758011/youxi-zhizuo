@@ -16,7 +16,7 @@
 使用前必须检查目标项目的 `package.json` 和 lockfile 中实际安装的 `phaser` 版本：
 
 - Phaser 4.2.x：可以按任务加载本目录对应技能。
-- Phaser 3.90.x：使用仓库现有 Phaser 3.90 技能（如 `phaser-core`、`phaser-arcade-physics`）及现有移动端 Phaser 工作流；不要把本目录的 Phaser 4 API 复制进去。
+- Phaser 3.90.x：使用本仓库自编写的 [Phaser 3.90 运行时资产集成技能](../Phaser3.90运行时资产集成/SKILL.md) 与现有移动端 Phaser 工作流；`awesome-gamedev-agent-skills` 中的 `phaser-core`、`phaser-arcade-physics` 当前正文以 Phaser 4.2 为目标，不得误当作 Phaser 3.90 技能。
 - Phaser 3 → Phaser 4：只有用户明确要求升级时，才加载 `v3-to-v4-migration`，逐项核对官方迁移文档、锁文件和回归测试；不得因有新技能就主动升级。
 
 当前 `PVZ-Complete-Game` 的 `package.json` 声明 `phaser: ^3.90.0`。因此，本目录**不适用于当前 PVZ 工程**，也不计入该工程的已验证能力。
