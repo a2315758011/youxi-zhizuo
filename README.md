@@ -25,6 +25,7 @@
 - [小游戏开发工作室技能](./程序开发/小游戏开发工作室技能/SKILL.md)：游戏总导演及策划、程序、美术、动画、关卡、UI、音频、测试、发布的统一执行入口。
 - [软件工具链清单](./程序开发/小游戏开发工作室技能/软件工具链清单.md)：引擎、开发、美术、地图、音频和测试工具选型。
 - [能力矩阵与验收标准](./程序开发/小游戏开发工作室技能/能力矩阵与验收标准.md)：专业能力、阶段门禁和真实交付验收。
+- [体验驱动游戏规划与迭代管理](./程序开发/体验驱动游戏规划与迭代管理/SKILL.md)：从玩家体验反推核心支柱、功能、证据成熟度和可试玩迭代；L1-L4 不替代项目总进度。
 - [从零制作游戏全流程与 AI 简洁性约束](./程序开发/从零制作游戏全流程与AI简洁性约束.md)：从立项到长期运营的完整流程，以及反过度设计、反代码膨胀和按风险设计安全措施的硬规则。
 - [专业游戏技能库来源与中文调度索引](./程序开发/专业游戏技能库来源与中文调度索引.md)：已找回的 77 项跨引擎技能、24 项精选补充技能、AI 美术流水线、来源许可和按需调度方法。
 
@@ -69,7 +70,7 @@
 - [游戏资料库轻量质量检查](./tools/validate_game_repo.py)：仅用 Python 标准库检查全部技能元数据、README 技能数量和核心索引链接。
 - GitHub Actions 在 main 分支推送、拉取请求及手动触发时执行检查；不需要付费 API 或额外 Python 依赖。
 
-**当前仓库技能规模：170 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
+**当前仓库技能规模：171 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
 
 ## 每日游戏技能搜集
 - [Cocos Creator Skill](./外部专业技能库/Cocos%20Creator%20Skill/README.md)：新增 Cocos Creator 3.8.x / COCOS 4 技能，含 DeepSeek Harness 适配、完整参考资料与项目体检脚本，当前 B 级待实测。
