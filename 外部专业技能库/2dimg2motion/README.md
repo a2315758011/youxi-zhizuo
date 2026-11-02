@@ -1,11 +1,11 @@
 <div align="center">
 <p align="center">
-  <img src="examples/e1res.gif" height="110" alt="claudecy idle" />
-  <img src="examples/e2res.gif" height="110" alt="claudecy running" />
-  <img src="examples/e3res.gif" height="110" alt="claudecy success" />
-  <img src="examples/e4res.gif" height="110" alt="claudecy talking" />
-  <img src="examples/e7res.gif" height="110" alt="howl success" />
-  <img src="examples/e6res.gif" height="110" alt="howl running" />
+  
+  
+  
+  
+  
+  
 </p>  
 
 # 2dimg2motion.skill
@@ -34,7 +34,7 @@ and output a style-consistent transparent action sequence ready to import into a
 </p>
 
 
-![head](examples/github-header-1.png)
+[示例图片请查看上游仓库](https://github.com/WU-HAOTIAN34/2dimg2motion)
 
 </div>
 
@@ -197,30 +197,30 @@ OK
     <th align="center"><p align="center">Beetle - Crawl</p></th>
   </tr>
   <tr>
-    <td align="center"><img src="examples/s1.png" width="110" alt="ronin input image"></td>
-    <td align="center"><img src="examples/s2.png" width="110" alt="golem input image"></td>
-    <td align="center"><img src="examples/s3.png" width="110" alt="monster input image"></td>
-    <td align="center"><img src="examples/s5.png" width="110" alt="giant input image"></td>
-    <td align="center"><img src="examples/s6.png" width="110" alt="worker input image"></td>
-    <td align="center"><img src="examples/s4.png" width="110" alt="beetle input image"></td>
+    <td align="center"></td>
+    <td align="center"></td>
+    <td align="center"></td>
+    <td align="center"></td>
+    <td align="center"></td>
+    <td align="center"></td>
   </tr>
   <tr>
-    <td colspan="6"><img src="examples/s1-spritesheet .png" width="1200" alt="ronin slash 14-frame spritesheet"></td>
+    <td colspan="6"></td>
   </tr>
   <tr>
-    <td colspan="6"><img src="examples/s2-spritesheet.png" width="1200" alt="golem smash 14-frame spritesheet"></td>
+    <td colspan="6"></td>
   </tr>
   <tr>
-    <td colspan="6"><img src="examples/s3-spritesheet.png" width="1200" alt="monster claw 14-frame spritesheet"></td>
+    <td colspan="6"></td>
   </tr>
   <tr>
-    <td colspan="6"><img src="examples/s5-spritesheet.png" width="1200" alt="giant sword-swing 14-frame spritesheet"></td>
+    <td colspan="6"></td>
   </tr>
   <tr>
-    <td colspan="6"><img src="examples/s6-spritesheet.png" width="1200" alt="worker walk 14-frame spritesheet"></td>
+    <td colspan="6"></td>
   </tr>
   <tr>
-    <td colspan="6"><img src="examples/s4-spritesheet.png" width="1200" alt="beetle crawl 14-frame spritesheet"></td>
+    <td colspan="6"></td>
   </tr>
 </table>
 
@@ -359,13 +359,13 @@ MIT © 2026 Haotian Wu
     <tr>
       <td align="center">
         <a href="#小程序://搬家塔防/bQrrvXJtLMv04Bh">
-          <img src="examples/logo.png" width="120" height="120" alt="Moving Tower Defense Battle"><br>
+          <br>
           <strong>Moving Tower Defense Battle</strong>
         </a>
         <br>
         <span>WeChat Mini Game · Tower Defense Strategy</span>
         <br>
-        <img src="https://img.shields.io/badge/WeChat%20Mini%20Game-Live-07C160" alt="WeChat">
+        
       </td>
     </tr>
   </table>
