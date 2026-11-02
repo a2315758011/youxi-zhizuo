@@ -368,3 +368,33 @@ python3 skills/assets/asset-pack-intake/scripts/validate_pack.py --root /absolut
 ### 已知未闭合依赖
 
 `sprite-skin` 提到的 `hitbox-hurtbox`、`collision-layers`、`game-monetization` 尚未作为本次精选依赖归档；使用时必须由项目已有实现提供对应契约，否则只作设计参考，不允许声称已完成换肤验收。
+
+
+## 第二轮精选补充：塔防、敌人 AI 与战斗反馈（2026-11-02）
+
+来自同一上游固定审阅提交 `1bf9419d3aabd442e768bbdbc7bcae4cf53c6461`（MIT）。按本地完整路径去重后新增 10 项：
+
+| 技能 | 主要职责 | 推荐场景 |
+|---|---|---|
+| [tower-wave](skills/disciplines/tower-wave/SKILL.md) | 模式级波次身份、阶段、路径版本、推进/重置规则 | 塔防、守城、关卡波次 |
+| [spawn-wave](skills/disciplines/spawn-wave/SKILL.md) | 敌人从出生点进入、预算/节奏、可见性和重放 | 刷怪、波次调度 |
+| [enemy-ai](skills/disciplines/enemy-ai/SKILL.md) | 待机、警戒、搜索、战斗、撤退、恢复状态机 | 僵尸、巡逻敌人、Boss |
+| [enemy-perception](skills/disciplines/enemy-perception/SKILL.md) | 视线、听觉、最后已知位置、警报共享 | 潜行、追踪、警戒 |
+| [target-priority](skills/disciplines/target-priority/SKILL.md) | 候选目标过滤、评分、稳定排序与切换策略 | 塔的索敌、自动攻击、锁定 |
+| [collision-layers](skills/disciplines/collision-layers/SKILL.md) | 碰撞/查询分类及交互矩阵 | 子弹、角色、地形、传感器 |
+| [hitbox-hurtbox](skills/disciplines/hitbox-hurtbox/SKILL.md) | 攻击体/受击体、同帧命中和重复命中规则 | 近战、投射物、接触伤害 |
+| [projectile-hitscan](skills/disciplines/projectile-hitscan/SKILL.md) | 子弹/射线/光束身份、命中事件与终止原因 | 豌豆子弹、炮弹、激光 |
+| [ability-gate](skills/disciplines/ability-gate/SKILL.md) | 能力/剧情条件门禁及解锁迁移 | 技能、关卡和能力解锁 |
+| [juice-vfx](skills/disciplines/juice-vfx/SKILL.md) | 命中闪光、粒子、拖尾、镜头反馈和清理 | 命中反馈、爆炸、受击表现 |
+
+### 组合使用原则
+
+- 塔防主链：`tower-wave` 管理波次身份与阶段，`spawn-wave` 管理具体敌人何时何地进入，`enemy-ai` 管理进入场景后的行为。
+- 敌人索敌：`enemy-perception` 提供可感知证据，`enemy-ai` 消费证据；`target-priority` 决定可攻击候选与稳定选择。塔防若按路径进度/威胁值索敌，应先定义评分输入，不把“最近目标”当成通用正确答案。
+- 命中链：`projectile-hitscan` 管理投射物/射线命中身份，`collision-layers` 过滤碰撞候选，`hitbox-hurtbox` 负责伤害语义，`juice-vfx` 只负责表现，绝不反向决定伤害。
+- 随机波次应接 `rng-seed`，路径/移动由导航或移动系统负责，特效成本与清理由 `performance-budget`、`asset-runtime` 约束。
+- 这些技能描述的是责任边界与验收方法，不代表仓库已经有完整的塔防实现或运行时组件。
+
+### 本轮评级与限制
+
+10 项均为 B 级：上游原文、MIT 来源和依赖职责已审阅并归档；尚未在 PVZ Unity 工程或其他真实游戏运行验证。上游目录里未发现独立的 tower-defense 完整实现；本次采用 tower-wave + spawn-wave + enemy-AI 组合，不把通用波次调度误称为完整塔防框架。
