@@ -79,7 +79,9 @@
 - [塔防、敌人 AI 与战斗反馈技能](./外部专业技能库/open-game-skills/README.zh.md)：新增 tower-wave、spawn-wave、enemy-ai、enemy-perception、target-priority、collision-layers、hitbox-hurtbox、projectile-hitscan、ability-gate、juice-vfx，重点补齐塔防波次、敌人感知、确定性目标选择、碰撞过滤和特效表现边界。
 
 ## 每日游戏技能搜集
-- [Phaser 4 官方 AI 技能](./外部专业技能库/Phaser4官方技能/README.md)：归档 27 项 Phaser 4.2.1 官方子系统技能，覆盖动画、粒子、Tween、相机、资源、物理、场景和响应式布局；MIT。严格与 Phaser 3.90 隔离，当前 PVZ 工程不可直接使用，评级 B。\n- [Phaser 3.90 运行时资产集成](./外部专业技能库/Phaser3.90运行时资产集成/README.md)：自编写版本专用技能，覆盖分层角色、动画状态、事件、粒子、锚点、碰撞代理和真实运行验收；B 级待工程 A/B 实测。\n- [Unity AI Agents 专业技能](./外部专业技能库/AI-Agents-for-Unity/README.md)：从 Unity AI Agents 28 项技能中精选 unity-mcp、unity-orient、unity-tests、unity-validate、unity-profile 及必要 references，MIT；重点补齐 Unity 编辑器 MCP、隔离候选验收和性能测量。当前 B 级待真实项目验证。
+- [Phaser 4 官方 AI 技能](./外部专业技能库/Phaser4官方技能/README.md)：归档 27 项 Phaser 4.2.1 官方子系统技能，覆盖动画、粒子、Tween、相机、资源、物理、场景和响应式布局；MIT。严格与 Phaser 3.90 隔离，当前 PVZ 工程不可直接使用，评级 B。
+- [Phaser 3.90 运行时资产集成](./外部专业技能库/Phaser3.90运行时资产集成/README.md)：自编写版本专用技能，覆盖分层角色、动画状态、事件、粒子、锚点、碰撞代理和真实运行验收；B 级待工程 A/B 实测。
+- [Unity AI Agents 专业技能](./外部专业技能库/AI-Agents-for-Unity/README.md)：从 Unity AI Agents 28 项技能中精选 unity-mcp、unity-orient、unity-tests、unity-validate、unity-profile 及必要 references，MIT；重点补齐 Unity 编辑器 MCP、隔离候选验收和性能测量。当前 B 级待真实项目验证。
 - [Cocos Creator Skill](./外部专业技能库/Cocos%20Creator%20Skill/README.md)：Cocos Creator 3.8.x / COCOS 4 社区技能，当前 B 级待实测。版本边界见 [VERSION-ROUTING](./外部专业技能库/Cocos%20Creator%20Skill/VERSION-ROUTING.md)，不把 COCOS 4 平台名当作 Creator 4.x 引擎 API。
 - [Game Dev Skills](./外部专业技能库/game-dev-skills/README.md)：新增跨引擎 game-implement 与 game-test，强调最小垂直切片、真实首次使用检查和证据分级，当前 B 级待实测。
 - [DeepSeek Harness 插件开发技能](./外部专业技能库/DeepSeek-Harness-Plugin-Dev-Skill/README.md)：收录 DSH 插件工程技能 0.7.0，含 11 篇参考资料，MIT；自动更新脚本中的危险删除选项已标记为禁止盲目执行。
