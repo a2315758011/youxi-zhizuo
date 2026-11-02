@@ -79,7 +79,8 @@
 - [塔防、敌人 AI 与战斗反馈技能](./外部专业技能库/open-game-skills/README.zh.md)：新增 tower-wave、spawn-wave、enemy-ai、enemy-perception、target-priority、collision-layers、hitbox-hurtbox、projectile-hitscan、ability-gate、juice-vfx，重点补齐塔防波次、敌人感知、确定性目标选择、碰撞过滤和特效表现边界。
 
 ## 每日游戏技能搜集
-- [Unity AI Agents 专业技能](./外部专业技能库/AI-Agents-for-Unity/README.md)：从 Unity AI Agents 28 项技能中精选 unity-mcp、unity-orient、unity-tests、unity-validate、unity-profile 及必要 references，MIT；重点补齐 Unity 编辑器 MCP、隔离候选验收和性能测量。当前 B 级待真实项目验证。\n- [Cocos Creator Skill](./外部专业技能库/Cocos%20Creator%20Skill/README.md)：新增 Cocos Creator 3.8.x / COCOS 4 技能，含 DeepSeek Harness 适配、完整参考资料与项目体检脚本，当前 B 级待实测。
+- [Unity AI Agents 专业技能](./外部专业技能库/AI-Agents-for-Unity/README.md)：从 Unity AI Agents 28 项技能中精选 unity-mcp、unity-orient、unity-tests、unity-validate、unity-profile 及必要 references，MIT；重点补齐 Unity 编辑器 MCP、隔离候选验收和性能测量。当前 B 级待真实项目验证。
+- [Cocos Creator Skill](./外部专业技能库/Cocos%20Creator%20Skill/README.md)：新增 Cocos Creator 3.8.x / COCOS 4 技能，含 DeepSeek Harness 适配、完整参考资料与项目体检脚本，当前 B 级待实测。
 - [Game Dev Skills](./外部专业技能库/game-dev-skills/README.md)：新增跨引擎 game-implement 与 game-test，强调最小垂直切片、真实首次使用检查和证据分级，当前 B 级待实测。
 - [DeepSeek Harness 插件开发技能](./外部专业技能库/DeepSeek-Harness-Plugin-Dev-Skill/README.md)：收录 DSH 插件工程技能 0.7.0，含 11 篇参考资料，MIT；自动更新脚本中的危险删除选项已标记为禁止盲目执行。
 - [Unity 官方 AI 技能](./外部专业技能库/Unity-Technologies-Unity-Skills/SOURCE-NOTES.md)：精选 unity-cli、sprite-editor、manage-sprite-atlas、2d-pixel-perfect、create-tile-palette-or-rule-tiles，保留官方许可证与引用资料。
