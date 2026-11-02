@@ -1,6 +1,6 @@
 # DeepSeek Harness (DSH) 插件开发技能
 
-[English](README.md) | **简体中文**
+[English](UPSTREAM-README.md) | **简体中文**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Updated](https://img.shields.io/badge/updated-2026--11--01-informational)](CHANGELOG.md)
@@ -47,7 +47,7 @@
 - **Tag-pinned 更新检查**：见 `SKILL.md §0.1` 与 [`AGENTS.md`](AGENTS.md) 「Mandatory flow on entry」。
 - **可追踪上游**：每篇参考文档末尾附官方文档 URL。
 
-Agent 介入仓库时的约定（加载、检查、不能动哪些文件）见 [`AGENTS.md`](AGENTS.md)。
+本归档的版本与安全约束见 [`README.md`](README.md)。上游 AGENTS.md 未作为活动指令文件导入，避免把上游仓库规则误应用到本仓库。
 
 ## 三步上手
 
