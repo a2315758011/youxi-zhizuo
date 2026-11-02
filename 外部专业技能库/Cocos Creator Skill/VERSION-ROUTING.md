@@ -35,3 +35,8 @@
 ## 结论
 
 当前技能库已有 Cocos Creator 3.8.x / COCOS 4 的社区技能；本补充负责版本命名纠偏和 API 路由，不宣称 COCOS 4 等于 Creator 4.x，也不替代真实工程测试。
+
+## 官方来源
+- COCOS 全版本升级指南（2026-10-01）：https://www.cocos.com/post/LZ9OEy7zzL9ZUhrOMx6gJEcrUdD4LU1D — 明确说明本次更新不更改 Creator 版本号，只新增全平台发布平台。
+- COCOS 全版本更新（第二批，2026-10-19）：https://www.cocos.com/post/sEVobOeOg1RNyzgSfHDS1suE3HUzkshJ — 说明各 Creator 版本新增全平台发布能力。
+- Cocos Creator 4.0 文档页：https://docs.cocos.com/creator/4.0/manual/en/ — 页面目录涵盖 Spine、DragonBones、动画、粒子与 UI；同页产品线说明仍称 Creator 3.x 为最新版本，因此须按实际编辑器版本确认 API。
