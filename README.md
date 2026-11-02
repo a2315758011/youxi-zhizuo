@@ -70,3 +70,7 @@
 - GitHub Actions 在 main 分支推送、拉取请求及手动触发时执行检查；不需要付费 API 或额外 Python 依赖。
 
 **当前仓库技能规模：158 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
+
+## 每日游戏技能搜集
+- [每日游戏技能搜集与维护规则](./程序开发/每日游戏技能搜集规则.md)：每日检索、去重、许可证审查、技能分级与质量门禁。
+- [每日研究记录](./测试验收/每日游戏技能搜集记录/)：按日期记录来源、采用决定、仓库变更与验证证据。
