@@ -1,15 +1,16 @@
-# Unity 官方 AI 技能来源说明
+# Unity 官方技能来源说明
 
 - 上游：[Unity-Technologies/skills](https://github.com/Unity-Technologies/skills)
-- 固定上游 Git tree：`089bedebab64e9e75943b19a364c7aec2162a7e7`（main，2026-11-02 检索）
-- 上游最近更新：2026-11-01；官方仓库约 35 项 Unity 工作流技能。
-- 上游许可证：Unity Companion License，完整 `LICENSE.md` 已保留。
-- 本次精选导入 2 项完整技能及引用/示例：
-  1. `unity-cli/`：通过 Unity CLI 发现命令、驱动已连接 Editor、执行 C#、构建、测试、读取日志，并用运行时证据确认游戏确实推进。
-  2. `sprite-editor/`：通过 Unity Sprite Editor 数据提供器修改 Sprite rect、pivot、border、outline 与切片；附带完整参考与 C# 示例。
-- 选择理由：Sprite 元数据保存在 Unity importer 中，不应手工编辑 .meta；需要在真实 Editor 中验证切片和 pivot。该流程与恢复 PVZ 原始 Sprite 层级/帧资源的工作直接相关。
-- 重要限制：`sprite-editor` 依赖 `unity-cli`、已连接的 Unity Editor，以及实际存在的 `script eval` Pipeline 命令。若 Editor 或命令不可用，必须停止相关修改，不得改为手工篡改 .meta。
-- 版本注意：Unity CLI 文档标记其为 experimental（实验性），命令和文档可能变化；每次使用先读取本地 Unity 版本、CLI 版本、Pipeline 包版本及命令目录。
-- 许可证限制：Unity Companion License 仅允许在有效 Unity Engine License 关联的 Unity 内容创作/发行场景中使用。此目录仅供 Unity 工程；不得将 Unity 技能内容拆出后当作通用 MIT/Apache 技能重新分发。
-- 未做事项：本轮仅归档，不在工作站安装 Unity CLI、不修改 Unity 项目、不执行 Sprite Importer 写入。
-- 评级：B（Unity 第一方来源、许可证与依赖已核对；未在用户工程中实测）。
+- 固定 Git tree：`089bedebab64e9e75943b19a364c7aec2162a7e7`（2026-11-02 检索）
+- 上游许可证：Unity Companion License，根目录 `LICENSE.md` 已保留；仅用于有效 Unity Engine License 关联的 Unity 内容创作/发行场景，不按 MIT/Apache 重新分发。
+- 本仓库精选 5 项官方技能：
+  1. `unity-cli`：控制已连接 Unity Editor、构建、测试和运行时检查；官方仍标记为 experimental，使用前核对版本。
+  2. `sprite-editor`：通过 Sprite Editor Data Provider 管理切片、rect、pivot、border、outline；不手工修改 .meta。
+  3. `manage-sprite-atlas`：SpriteAtlas V2、编辑器/运行时分离、预构建、变体、Addressables、缓存和加载；主技能、references 与 38 个资源示例已导入。
+  4. `2d-pixel-perfect`：区分 URP 与 Built-in 两套不兼容实现，先识别渲染管线；只适用于像素风/低分辨率素材，不用于高清 2D。
+  5. `create-tile-palette-or-rule-tiles`：创建 Tile Palette/RuleTile，适合网格地形、自动连接边缘和关卡网格。
+- SpriteAtlas V2 强制区分 Editor-only 的 SpriteAtlasAsset 与 Runtime-only 的 SpriteAtlas；通过 SpriteAtlasImporter 配置；修改后 SaveAndReimport；禁止在运行时代码执行编辑器打包逻辑。
+- Tile Palette 上游示例创建资源前需检查目标路径，防止覆盖同名资产；依赖 `com.unity.2d.tilemap`。
+- Pixel Perfect：URP/Built-in 的组件、包和 API 不兼容；HDRP 不支持；高清美术不应强行启用 Point filtering。
+- 未做事项：未安装 Unity CLI，未在用户 Unity 工程创建/修改 SpriteAtlas、Tile Palette 或相机设置。
+- 评级：B（官方来源、依赖文档与示例已归档；真实项目运行验收待执行）。
