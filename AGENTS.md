@@ -88,3 +88,13 @@
 - 只有项目真实依赖为 Phaser 4.2.x 时，才按当前任务读取 [Phaser 4 官方技能索引](./外部专业技能库/Phaser4官方技能/README.md) 与对应 `skills/<name>/SKILL.md`。每阶段仍遵守最多 3 个专业技能 + 1 个必要引擎技能。
 - Phaser 3 → 4 迁移必须由用户明确授权；届时才读取 `v3-to-v4-migration`，单独制定迁移范围、锁文件策略和回归门禁，不得因技能库更新而自动升级。
 - 当前 `PVZ-Complete-Game` 的依赖为 `phaser ^3.90.0`，Phaser 4 技能对该项目不适用。
+
+## Phaser 3.90 运行时资产集成
+- 当前 Phaser 3.90 工程按需读取 [Phaser 3.90 运行时资产集成](./外部专业技能库/Phaser3.90运行时资产集成/SKILL.md)，负责动画状态、分层资产、粒子、碰撞代理和事件生命周期。
+- 本技能是针对 Phaser 3.90 的版本适配，不是 Phaser 4 官方技能的翻译；先核对 lockfile 实际版本，不混用 API。
+- 视觉层只呈现权威游戏状态；VFX 不决定伤害/命中；Container 子对象的物理边界必须单独验证。
+
+## Cocos Creator 版本命名门禁
+- Cocos 项目必须按编辑器真实版本、project.json、项目配置和对应官方 API Reference 交叉核验。
+- COCOS 4 平台/发布体系不等于已确认的 Cocos Creator 4.x 引擎 API；版本不明或资料矛盾时标记 VERSION_MISMATCH，停止写入。
+- 读取 [Cocos Creator 版本路由补充](./外部专业技能库/Cocos%20Creator%20Skill/VERSION-ROUTING.md) 后再选择 3.8.x 或平台集成路线。
