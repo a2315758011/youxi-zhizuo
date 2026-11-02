@@ -70,7 +70,7 @@
 - [游戏资料库轻量质量检查](./tools/validate_game_repo.py)：仅用 Python 标准库检查全部技能元数据、README 技能数量和核心索引链接。
 - GitHub Actions 在 main 分支推送、拉取请求及手动触发时执行检查；不需要付费 API 或额外 Python 依赖。
 
-**当前仓库技能规模：218 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
+**当前仓库技能规模：219 份 SKILL.md。** 其中已精选导入 39 项通用 AI 编程工程原始技能（awesome-agent-skills 17、engineering-standards 7、Superpowers 8、GitHub Awesome Copilot 4、Everything Game Dev Code 3），并建立 1 项中文工程总规范。第三方技能默认 B 级，尚未在用户具体游戏项目完成 A/B 实测。
 
 
 - [2D 蒙皮权重与动画组合技能](./外部专业技能库/open-game-skills/README.zh.md)：补齐 skin-weights、animation-graph、animation-blend、ik-foot-locking；包含网格构建、权重求解、泄漏/折痕检测、动作轨迹和导出验证。原始第三方代码默认不自动执行。
@@ -79,8 +79,8 @@
 - [塔防、敌人 AI 与战斗反馈技能](./外部专业技能库/open-game-skills/README.zh.md)：新增 tower-wave、spawn-wave、enemy-ai、enemy-perception、target-priority、collision-layers、hitbox-hurtbox、projectile-hitscan、ability-gate、juice-vfx，重点补齐塔防波次、敌人感知、确定性目标选择、碰撞过滤和特效表现边界。
 
 ## 每日游戏技能搜集
-- [Phaser 4 官方 AI 技能](./外部专业技能库/Phaser4官方技能/README.md)：归档 27 项 Phaser 4.2.1 官方子系统技能，覆盖动画、粒子、Tween、相机、资源、物理、场景和响应式布局；MIT。严格与 Phaser 3.90 隔离，当前 PVZ 工程不可直接使用，评级 B。\n- [Unity AI Agents 专业技能](./外部专业技能库/AI-Agents-for-Unity/README.md)：从 Unity AI Agents 28 项技能中精选 unity-mcp、unity-orient、unity-tests、unity-validate、unity-profile 及必要 references，MIT；重点补齐 Unity 编辑器 MCP、隔离候选验收和性能测量。当前 B 级待真实项目验证。
-- [Cocos Creator Skill](./外部专业技能库/Cocos%20Creator%20Skill/README.md)：新增 Cocos Creator 3.8.x / COCOS 4 技能，含 DeepSeek Harness 适配、完整参考资料与项目体检脚本，当前 B 级待实测。
+- [Phaser 4 官方 AI 技能](./外部专业技能库/Phaser4官方技能/README.md)：归档 27 项 Phaser 4.2.1 官方子系统技能，覆盖动画、粒子、Tween、相机、资源、物理、场景和响应式布局；MIT。严格与 Phaser 3.90 隔离，当前 PVZ 工程不可直接使用，评级 B。\n- [Phaser 3.90 运行时资产集成](./外部专业技能库/Phaser3.90运行时资产集成/README.md)：自编写版本专用技能，覆盖分层角色、动画状态、事件、粒子、锚点、碰撞代理和真实运行验收；B 级待工程 A/B 实测。\n- [Unity AI Agents 专业技能](./外部专业技能库/AI-Agents-for-Unity/README.md)：从 Unity AI Agents 28 项技能中精选 unity-mcp、unity-orient、unity-tests、unity-validate、unity-profile 及必要 references，MIT；重点补齐 Unity 编辑器 MCP、隔离候选验收和性能测量。当前 B 级待真实项目验证。
+- [Cocos Creator Skill](./外部专业技能库/Cocos%20Creator%20Skill/README.md)：Cocos Creator 3.8.x / COCOS 4 社区技能，当前 B 级待实测。版本边界见 [VERSION-ROUTING](./外部专业技能库/Cocos%20Creator%20Skill/VERSION-ROUTING.md)，不把 COCOS 4 平台名当作 Creator 4.x 引擎 API。
 - [Game Dev Skills](./外部专业技能库/game-dev-skills/README.md)：新增跨引擎 game-implement 与 game-test，强调最小垂直切片、真实首次使用检查和证据分级，当前 B 级待实测。
 - [DeepSeek Harness 插件开发技能](./外部专业技能库/DeepSeek-Harness-Plugin-Dev-Skill/README.md)：收录 DSH 插件工程技能 0.7.0，含 11 篇参考资料，MIT；自动更新脚本中的危险删除选项已标记为禁止盲目执行。
 - [Unity 官方 AI 技能](./外部专业技能库/Unity-Technologies-Unity-Skills/SOURCE-NOTES.md)：精选 unity-cli、sprite-editor、manage-sprite-atlas、2d-pixel-perfect、create-tile-palette-or-rule-tiles，保留官方许可证与引用资料。
