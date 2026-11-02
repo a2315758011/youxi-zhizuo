@@ -342,3 +342,29 @@ python3 skills/assets/asset-pack-intake/scripts/validate_pack.py --root /absolut
 [hd-sprite-sequence](skills/2d/hd-sprite-sequence/SKILL.md): 锁定脸部大小、头身与四肢比例；用图片哈希、独立关键点和动作循环门禁校对，失败帧必须重绘。
 
 提供固定角色部件＋骨架烘焙，禁止逐帧缩放或换脸；烘焙结果仍需独立美术与动作验收。
+
+
+## 本仓库精选补充（2026-11-02）
+
+本地精选目录在原有 24 项基础上补齐以下 5 项，来自上游固定审阅提交 `1bf9419d3aabd442e768bbdbc7bcae4cf53c6461`（MIT）：
+
+| 技能 | 用途 | 备注 |
+|---|---|---|
+| [skin-weights](skills/2d/skin-weights/SKILL.md) | 2D 网格蒙皮权重、权重泄漏/接缝检测、真实动作轨迹、表面变形审计 | 补齐现有 spine-skeletal 的直接依赖 |
+| [animation-graph](skills/disciplines/animation-graph/SKILL.md) | 动画状态请求、图层、遮罩、优先级、打断规则 | 不拥有玩法状态或攻击合法性 |
+| [animation-blend](skills/disciplines/animation-blend/SKILL.md) | 多动画混合、叠加层、根运动唯一归属、连续纠正 | 与状态图配合使用 |
+| [ik-foot-locking](skills/disciplines/ik-foot-locking/SKILL.md) | 足部接触锁定、移动平台/斜坡适配、IK 伸展限制 | IK 仅修正表现姿态，不替代玩法移动 |
+| [sprite-skin](skills/2d/sprite-skin/SKILL.md) | 图集槽位、Spine 皮肤和调色板换肤 | 依赖 hitbox-hurtbox、collision-layers、game-monetization 等契约；缺失依赖未补齐前不作为独立执行入口 |
+
+### skin-weights 脚本与依赖
+
+已归档完整脚本、两个 reference 和测试文件：
+- `build_mesh.py`、`solve_weights.py`、`lint_weights.py`、`pose_trace.py`、`render_skin.py`、`export_rigc.py`、`skinlib.py`、`test_skin_weights.py`。
+- Python 依赖：NumPy、Pillow；仅记录在 `scripts/requirements.txt`，本轮未安装。
+- `export_rigc.py --verify-rigc` 会调用外部 rig-c/Bun 子进程并删除自身临时脚本；默认不运行。只有确认可信工具包、路径和隔离环境后才允许执行。
+- 测试脚本的子进程只调用本目录脚本及配套 spine-skeletal 审计脚本；未发现网络请求或对用户项目目录的批量删除逻辑。
+- 这些脚本尚未在本轮实际运行；文件归档与静态审阅不等于算法或引擎验收通过。
+
+### 已知未闭合依赖
+
+`sprite-skin` 提到的 `hitbox-hurtbox`、`collision-layers`、`game-monetization` 尚未作为本次精选依赖归档；使用时必须由项目已有实现提供对应契约，否则只作设计参考，不允许声称已完成换肤验收。
