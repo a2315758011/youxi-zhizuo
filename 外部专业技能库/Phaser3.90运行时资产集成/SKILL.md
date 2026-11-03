@@ -86,3 +86,6 @@ metadata:
 - Container：https://docs.phaser.io/api-documentation/3.90.0/class/gameobjects-container
 
 验证记录（2026-11-03）：在用户 PVZ Phaser 3.90.0 工程完成 E3 定向集成验证：14 项自动化测试、生产构建、Edge 桌面/触摸模拟 E2E、PWA 离线资源 250/250 通过。受击 fallback 清单问题已修复，未修改运行时代码。评级暂保持 B，等待同一基线 A/B 各三轮对照；移动视口模拟不等于 Android 真机。
+## 2026-11-03 ParticleEmitter 运行时验证补充
+
+在 Phaser 3.90.0 的真实 PVZ GameScene 中，临时使用现有豌豆纹理验证 ParticleEmitter 创建、12 粒子一次性发射、260ms 生命周期回收和 destroy 清理；结果 12 → 0 存活粒子，12 个死亡粒子，场景列表移除成功，浏览器错误 0。此为 E3 API/生命周期 smoke test，不等于正式生产 VFX 或性能压力验收。
