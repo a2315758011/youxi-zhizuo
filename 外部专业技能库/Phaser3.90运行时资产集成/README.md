@@ -6,7 +6,8 @@
 - 适用：分层角色、帧动画、动画状态映射、事件、粒子、锚点、碰撞代理和 UI 接入。
 - 与 Phaser4 官方技能完全隔离；不要把 Phaser4 API 复制到 Phaser3.90 工程。
 - 当前 PVZ 项目依赖声明为 phaser ^3.90.0；执行前仍须从 lockfile 核对实际解析版本。
-- 评级：B。技能正文已按官方 API 审阅；尚未在 PVZ 工程完成独立 A/B 对照与运行验收。
+- 2026-11-03：在真实 PVZ Phaser 3.90.0 工程达到 E3 定向集成验证；npm test 14/14、生产构建、Edge 桌面/触摸模拟 E2E、PWA 离线 250/250 通过。发现并修复三种特殊僵尸 hurt → 原始 walk clip 的清单映射误报，未修改玩法运行时代码。
+- 评级暂保持 B：E3 证明技能适用于该工程，但严格 A/B 对照（同一基线、A/B 各三轮）尚未执行；Android 真机也未验证。
 
 ## 官方文档
 - https://docs.phaser.io/api-documentation/3.90.0/api-documentation
