@@ -85,4 +85,4 @@ metadata:
 - ParticleEmitter：https://docs.phaser.io/api-documentation/3.90.0/class/gameobjects-particles-particleemitter
 - Container：https://docs.phaser.io/api-documentation/3.90.0/class/gameobjects-container
 
-评级：B（基于官方 3.90 API 形成版本专用工作规范；尚未在用户 PVZ 工程完成本技能的独立 A/B 对照）。
+验证记录（2026-11-03）：在用户 PVZ Phaser 3.90.0 工程完成 E3 定向集成验证：14 项自动化测试、生产构建、Edge 桌面/触摸模拟 E2E、PWA 离线资源 250/250 通过。受击 fallback 清单问题已修复，未修改运行时代码。评级暂保持 B，等待同一基线 A/B 各三轮对照；移动视口模拟不等于 Android 真机。
