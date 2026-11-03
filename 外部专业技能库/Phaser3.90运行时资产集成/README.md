@@ -14,3 +14,9 @@
 - https://docs.phaser.io/api-documentation/3.90.0/class/animations-animationstate
 - https://docs.phaser.io/api-documentation/3.90.0/class/gameobjects-particles-particleemitter
 - https://docs.phaser.io/api-documentation/3.90.0/class/gameobjects-container
+## 2026-11-03 ParticleEmitter API 冒烟补充
+
+- 真实 Phaser 3.90.0 GameScene 临时使用现有 `projectile.pea` 纹理创建 ParticleEmitter。
+- 12 粒子一次性爆发，260ms 生命周期；实测 12 → 0 存活、12 死亡，显式 destroy 后 emitter 从 Scene display list 移除，浏览器错误 0。
+- 这是 E3 级 ParticleEmitter API/生命周期 smoke test，不是生产 VFX 接入；没有新增正式粒子资产，也没有把粒子连接到伤害/碰撞逻辑。
+- 完整证据在本地工程 `evidence/PARTICLE-EMITTER-RUNTIME-SMOKE-20261103.md`。
